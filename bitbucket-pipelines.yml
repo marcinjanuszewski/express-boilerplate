@@ -19,7 +19,7 @@ pipelines:
           image: 
             name: python:3
           script:
-            - pip install awscli awsebcli
+            - pip install awscli==1.18.218 awsebcli==3.19.3
             - aws --profile default configure set aws_access_key_id $AWS_ACCESS_KEY
             - aws --profile default configure set aws_secret_access_key $AWS_SECRET_KEY
             - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $AWS_ECR_URL
@@ -51,7 +51,7 @@ pipelines:
           image: 
             name: python:3
           script:
-            - pip install awscli awsebcli
+            - pip install awscli==1.18.218 awsebcli==3.19.3
             - cd deploy/elastic-beanstalk
             - aws --profile default configure set aws_access_key_id $AWS_ACCESS_KEY
             - aws --profile default configure set aws_secret_access_key $AWS_SECRET_KEY
